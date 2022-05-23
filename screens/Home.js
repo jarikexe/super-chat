@@ -1,10 +1,9 @@
 import {useState} from 'react';
-import {View, StyleSheet, Text, TextInput, Button} from "react-native";
-import {useSelector, useDispatch} from 'react-redux';
+import {View, StyleSheet, TextInput, Button} from "react-native";
+import {useDispatch} from 'react-redux';
 import {updateNickName} from '../store/actions/nickname'
 
 export default function HomeScreen({navigation}) {
-    const loginName = useSelector(state => state.nickname.nickName);
     const [loginNameHolder, setLoginNameHolder] = useState('');
     const dispatch = useDispatch();
 
@@ -15,7 +14,6 @@ export default function HomeScreen({navigation}) {
 
     return (
         <View style={styles.container}>
-            <Text>{loginName}</Text>
             <TextInput
                 style={styles.login}
                 onChangeText={(val) => setLoginNameHolder(val)}
